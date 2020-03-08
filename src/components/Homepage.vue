@@ -1,4 +1,14 @@
 <template>
+    <NavBar url="http://anasaraid.me"></NavBar>
+ </template>
 
+<script>
+  import NavBar from './NavBar.vue'
 
-</template>
+  export default {
+    name: 'Homepage',
+    components: {
+      NavBar
+    }
+  }
+</script>
