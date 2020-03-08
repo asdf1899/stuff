@@ -2,6 +2,7 @@
     <div>
         <nav-bar url="/" title="Article"></nav-bar>
         <p>{{$route.params.id}}</p>
+        
     </div>
 </template>
 
