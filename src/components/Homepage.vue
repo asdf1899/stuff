@@ -1,6 +1,9 @@
 <template>
     <div>
         <NavBar url="http://anasaraid.me" title="Stuff"></NavBar>
+        <div style="text-align:center">
+            <p><i>Just some random articles written by me...</i></p>
+        </div>
         <ArticlesList :articles="items"></ArticlesList>
     </div>
  </template>
@@ -18,8 +21,8 @@
     data: function(){
         return {
             items: [
-                {title: 'Random'},
-                {title: 'First'}
+                {id:2, title: 'Random'},
+                {id:1, title: 'First'}
             ]
         }
     }
