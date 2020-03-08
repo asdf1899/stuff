@@ -20,18 +20,9 @@
         ArticlesList
         },
         data: function(){
-            console.log(jsonArticles);
             return {
                 jsonArticles
             }
         }
-        /*data: function(){
-            return {
-                items: [
-                    {id:2, title: 'Random'},
-                    {id:1, title: 'First'}
-                ]
-            }
-        }*/
     }
 </script>
