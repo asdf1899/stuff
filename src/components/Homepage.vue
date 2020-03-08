@@ -1,10 +1,10 @@
 <template>
     <div>
-        <NavBar url="http://anasaraid.me" title="Stuff"></NavBar>
+        <nav-bar url="http://anasaraid.me" title="Stuff"></nav-bar>
         <div style="text-align:center">
             <p><i>Just some random articles written by me...</i></p>
         </div>
-        <ArticlesList :articles="jsonArticles"></ArticlesList>
+        <articles-list :articles="jsonArticles"></articles-list>
     </div>
  </template>
 
@@ -16,8 +16,8 @@
     export default {
         name: 'Homepage',
         components: {
-        NavBar,
-        ArticlesList
+        'nav-bar': NavBar,
+        'articles-list': ArticlesList
         },
         data: function(){
             return {

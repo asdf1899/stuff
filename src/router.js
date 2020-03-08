@@ -14,11 +14,16 @@ export default new Router({
       component: Homepage
     },
     {
-      path: '/stuff/:id',
+      path: '/:id',
       name: 'ArticleContent',
       component: ArticleContent
-    }
-    /*ArticleEntries.map(entry => ({
+    },
+    {
+      path: '/ciao',
+      name: 'ciao',
+      component: ArticleContent
+    }/*
+    ArticleEntries.map(entry => ({
       path: `/${entry}`,
       name: entry,
       component: () => import(`../markdowns/${entry}.md`)

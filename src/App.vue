@@ -6,11 +6,9 @@
 
 <script>
   import Homepage from './components/Homepage.vue'
-  import router from './router.js'
 
   export default {
     name: 'App',
-    router,
     components: {
       Homepage
     }
