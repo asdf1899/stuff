@@ -12,6 +12,11 @@ export default new Router({
       name: 'Homepage',
       component: Homepage
     },
+    {
+      path: '/1',
+      name: 'Homepage',
+      component: Homepage
+    }
     /*ArticleEntries.map( id => ({
         path: '/articles/${id}',
         name: id,

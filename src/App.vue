@@ -6,7 +6,7 @@
 
 <script>
   import Homepage from './components/Homepage.vue'
-  import router from './router'
+  import router from './router.js'
 
   export default {
     name: 'App',
