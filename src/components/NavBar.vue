@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <a v-bind:href="url">back</a>
+           <router-link :to="url">back</router-link>
         </div>
         <div style="text-align:center">
             <h1>{{ title }}</h1>
