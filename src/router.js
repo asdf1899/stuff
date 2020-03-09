@@ -16,7 +16,8 @@ export default new Router({
     {
       path: '/stuff/:id',
       name: 'ArticleContent',
-      component: ArticleContent
+      component: ArticleContent,
+      props: true
     },
     {
       path: '/ciao',
