@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav-bar url="/" title="Article"></nav-bar>
-        <vue-markdown>{{markdown}}</vue-markdown>
+        <vue-markdown>{{markdownFile}}</vue-markdown>
         
     </div>
 </template>
@@ -11,6 +11,7 @@
     import VueMarkdown from 'vue-markdown'
     import file from '@/statics/markdowns/1.md'
 
+    console.log(file);
     export default {
         name: 'ArticleContent',
         components: {
@@ -23,7 +24,8 @@
             }
         },
         data: function(){
-            return ({markdown: file});
+            const markdownFile = require('../statics/markdowns/'+this.id+'.md').default;
+            return ({ markdownFile });
         }
     }
 </script>
