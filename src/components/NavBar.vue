@@ -5,6 +5,7 @@
         </div>
         <div style="text-align:center">
             <h1>{{ title }}</h1>
+            <h4><i>{{ date }}</i></h4>
         </div>
     </div>
 </template>
@@ -12,6 +13,6 @@
 <script>
     export default {
         name: 'NavBar',
-        props: ['url', 'title']
+        props: ['url', 'title', 'date']
     }
 </script>

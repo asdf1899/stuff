@@ -1,7 +1,7 @@
 <template>
     <div>
-        <nav-bar url="/" title="Article"></nav-bar>
-        <vue-markdown>{{markdownFile}}</vue-markdown>
+        <nav-bar url="/" :title="this.jsonArticle.title" :date="this.jsonArticle.date"></nav-bar>
+        <vue-markdown>{{this.markdownFile}}</vue-markdown>
         
     </div>
 </template>
@@ -9,9 +9,9 @@
 <script>
     import NavBar from './NavBar.vue'
     import VueMarkdown from 'vue-markdown'
-    import file from '@/statics/markdowns/1.md'
+    import jsonArticles from '@/statics/articles.json'
+    //import file from '@/statics/markdowns/1.md'
 
-    console.log(file);
     export default {
         name: 'ArticleContent',
         components: {
@@ -24,8 +24,10 @@
             }
         },
         data: function(){
-            const markdownFile = require('../statics/markdowns/'+this.id+'.md').default;
-            return ({ markdownFile });
+            let jsonArticle = jsonArticles.find(x => x.id === this.id);
+            
+            const markdownFile = require('../statics/markdowns/'+jsonArticle.src).default;
+            return ({ markdownFile, jsonArticle });
         }
     }
 </script>

@@ -10,19 +10,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/docs/'
+      name: 'Homepage',
+      component: Homepage
     },
     {
-      path: '/docs/:id',
+      path: '/:id',
       name: 'ArticleContent',
       component: ArticleContent,
       props: true
-    },
-    {
-      path: '/docs/',
-      name: 'Homepage',
-      component: Homepage
-    }/*
+    }
+    /*
     ArticleEntries.map(entry => ({
       path: `/${entry}`,
       name: entry,

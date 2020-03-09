@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-bar url="http://anasaraid.me" title="Stuff"></nav-bar>
+        <nav-bar title="Stuff"></nav-bar>
         <div style="text-align:center">
             <p><i>Just some random articles written by me...</i></p>
         </div>
