@@ -1,6 +1,7 @@
 <template>
     <div>
-        <nav-bar url="/" :title="this.jsonArticle.title" :date="this.jsonArticle.date"></nav-bar>
+        <nav-bar class="nav-bar" url="/"></nav-bar>
+        <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>           
         <vue-markdown>{{this.markdownFile}}</vue-markdown>
     </div>
 </template>
@@ -9,13 +10,16 @@
     import NavBar from './NavBar.vue'
     import VueMarkdown from 'vue-markdown'
     import jsonArticles from '@/statics/articles.json'
+    import Header from './Header.vue'
+
     //import file from '@/statics/markdowns/1.md'
 
     export default {
         name: 'ArticleContent',
         components: {
             'nav-bar': NavBar,
-            'vue-markdown': VueMarkdown
+            'vue-markdown': VueMarkdown,
+            'header-info': Header
         },
         props: {
             id: {

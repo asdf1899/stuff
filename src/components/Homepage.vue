@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-bar title="Stuff"></nav-bar>
+        <header-info title="Stuff"></header-info>
         <div style="text-align:center">
             <p><i>Just some random articles written by me...</i></p>
         </div>
@@ -12,15 +12,15 @@
  </template>
 
 <script>
-    import NavBar from './NavBar.vue'
+    import Header from './Header.vue'
     import ArticlesList from './ArticlesList.vue'
     import jsonArticles from '@/statics/articles.json'
 
     export default {
         name: 'Homepage',
         components: {
-        'nav-bar': NavBar,
-        'articles-list': ArticlesList
+            'articles-list': ArticlesList,
+            'header-info': Header
         },
         data: function(){
             return {
