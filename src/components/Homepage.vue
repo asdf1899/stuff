@@ -5,6 +5,9 @@
             <p><i>Just some random articles written by me...</i></p>
         </div>
         <articles-list :articles="jsonArticles"></articles-list>
+        <footer class="footer">
+            Built using <a href="https://vuejs.org/">Vue.js</a> and <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a> and obviously hosted on <a href="https://pages.github.com/">github</a>
+      </footer>
     </div>
  </template>
 
