@@ -1,8 +1,14 @@
 [
     {
         "id": "1",
-        "date": "March 10, 2020",
+        "date": "March 9, 2020",
         "title": "JAMstack",
         "src": "1.md"
+    },
+    {
+        "id": "2",
+        "date": "March 10, 2020",
+        "title": "Hackathons made me understand the importance of UX",
+        "src": "2.md"
     }
 ]

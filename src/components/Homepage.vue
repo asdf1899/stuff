@@ -2,7 +2,7 @@
     <div>
         <header-info title="Stuff"></header-info>
         <div style="text-align:center">
-            <p>Just some random articles written by me in order to stay <i>"su co le rece"<sup>1</sup></i> with new tech stack.</p>
+            <p>Just some random articles written by me in order to stay <i>"su co le rece"<sup>1</sup></i> with latest tech stacks.</p>
         </div>
         <articles-list :articles="jsonArticles.slice().reverse()"></articles-list>
         <footer class="footer">

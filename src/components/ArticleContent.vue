@@ -1,7 +1,8 @@
 <template>
     <div>
         <nav-bar class="nav-bar" url="/"></nav-bar>
-        <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>           
+        <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>   
+        <br>        
         <vue-markdown>{{this.markdownFile}}</vue-markdown>
     </div>
 </template>
