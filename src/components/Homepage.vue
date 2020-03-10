@@ -2,10 +2,12 @@
     <div>
         <header-info title="Stuff"></header-info>
         <div style="text-align:center">
-            <p><i>Just some random articles written by me...</i></p>
+            <p>Just some random articles written by me in order to stay <i>"su co le rece"<sup>1</sup></i> with new tech stack.</p>
         </div>
-        <articles-list :articles="jsonArticles"></articles-list>
+        <articles-list :articles="jsonArticles.slice().reverse()"></articles-list>
         <footer class="footer">
+            <i><sup>1</sup> stay up to date in Trentino dialect</i>
+            <br>
             Built using <a href="https://vuejs.org/">Vue.js</a> and <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a>
         </footer>
     </div>
