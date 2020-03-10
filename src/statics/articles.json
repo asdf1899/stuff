@@ -1,14 +1,8 @@
 [
     {
         "id": "1",
-        "date": "March 8, 2020",
-        "title": "temp",
+        "date": "March 10, 2020",
+        "title": "JAMstack",
         "src": "1.md"
-    },
-    {
-        "id": "2",
-        "date": "March 8, 2020",
-        "title": "test",
-        "src": "2.md"
     }
 ]
