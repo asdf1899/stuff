@@ -11,7 +11,20 @@ export default new Router({
     {
       path: '/',
       name: 'Homepage',
-      component: Homepage
+      component: Homepage,
+      meta: {
+        title: 'Stuff - Homepage',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Lightweight personal journal that parse markdown writing into articles.'
+          },
+          {
+            property: 'og:description',
+            content: 'Lightweight personal journal that parse markdown writing into articles.'
+          }
+        ]
+      }
     },
     {
       path: '/:id',

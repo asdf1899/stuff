@@ -4,7 +4,7 @@
         <br>
         <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>   
         <br>        
-        <vue-markdown>{{this.markdownFile}}</vue-markdown>
+        <vue-markdown style="text-align: justify;text-justify: inter-word;">{{this.markdownFile}}</vue-markdown>
     </div>
 </template>
 
