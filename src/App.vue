@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-      <router-view style="margin-bottom:60px;"></router-view>
+      <router-view class="style-router"></router-view>
     </div>
 </template>
 
@@ -16,4 +16,5 @@
 </script>
 <style>
   @import './assets/tuftecss.css';
+  @import './assets/style.css';
 </style>
