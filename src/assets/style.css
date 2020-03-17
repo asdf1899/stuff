@@ -10,7 +10,7 @@
     height: 100%;
 }
 .nav-bar{
-    background: #fffff8;
+    background-color: #fffff8;
     color: #111;
     position: fixed;
     margin-top:0;
@@ -20,7 +20,7 @@
     height: 20px;
 }
 .footer {
-    background: #fffff8;
+    background-color: #fffff8;
     color: #111;
     position: fixed;
     margin-bottom:0;
@@ -31,4 +31,8 @@
 }
 .style-router{
     margin-bottom:60px;
+}
+.style-dark-mode{
+    background: rgb(33, 33, 33)!important;
+    color: white!important;
 }
