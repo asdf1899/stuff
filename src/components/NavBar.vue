@@ -1,12 +1,11 @@
 <template>
     <div>
-        <a v-if="this.isUrl == true" :href="this.url"></a>
+        <a v-if="this.isUrl" :href="url">back</a>
         <router-link v-else :to="url">back</router-link>
     </div>
 </template>
 
 <script>
-    var validUrl = require('valid-url');
     export default {
         name: 'NavBar',
         props: ['url'],
@@ -14,14 +13,14 @@
             this.darkMode = false;
             this.isUrl = false;
             
-            console.log(validUrl.isWebUri("https://anasaraid.me"));
-            
-            if (validUrl.isUri(this.url)){
+            // eh oh intanto è cosi finchè non trovo una soluzione
+            if (this.url == "/anasaraid"){
                 this.isUrl = true;
+                this.url = "https://anasaraid.me";
             }else{
                 this.isUrl = false;
             }
-            return this.isUrl;
+            console.log(this.isUrl);
         },
         methods: {
             toogle(){
