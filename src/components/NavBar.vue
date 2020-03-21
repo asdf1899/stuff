@@ -1,7 +1,8 @@
 <template>
     <div>
         <a v-if="this.isUrl" :href="url">back</a>
-        <router-link v-else :to="url">back</router-link>
+        <router-link v-if="this.isUrl == false" :to="url">back</router-link>
+        <button v-on:click="toggle()">toggle dark mode</button>
     </div>
 </template>
 
@@ -23,18 +24,22 @@
             console.log(this.isUrl);
         },
         methods: {
-            toogle(){
+            toggle(){
                 if (this.darkMode){
-                    this.setDark();
-                }else{
                     this.setLight();
+                }else{
+                    this.setDark();
                 }
             },
             setDark(){
+                this.darkMode = true;
                 console.log("dark");
+                document.querySelector('body').classList.add('style-dark-mode')
             },
             setLight(){
+                this.darkMode = false;
                 console.log("light");
+                document.querySelector('body').classList.remove('style-dark-mode')
             }
         }
     }

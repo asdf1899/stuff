@@ -10,7 +10,7 @@
     height: 100%;
 }
 .nav-bar{
-    background-color: #fffff8;
+    background: #fffff8;
     color: #111;
     position: fixed;
     margin-top:0;
@@ -20,7 +20,7 @@
     height: 20px;
 }
 .footer {
-    background-color: #fffff8;
+    background: #fffff8;
     color: #111;
     position: fixed;
     margin-bottom:0;
