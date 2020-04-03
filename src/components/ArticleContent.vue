@@ -4,7 +4,8 @@
         <br>
         <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>   
         <br>        
-        <vue-markdown style="text-align: justify;text-justify: inter-word;">{{this.markdownFile}}</vue-markdown>
+        <vue-markdown v-if="isMobile" style="text-align:left!important;">{{this.markdownFile}}</vue-markdown>
+        <vue-markdown v-else style="text-align: justify!important;text-justify: inter-word;!important">{{this.markdownFile}}</vue-markdown>
     </div>
 </template>
 
@@ -13,7 +14,7 @@
     import VueMarkdown from 'vue-markdown'
     import jsonArticles from '@/statics/articles.json'
     import Header from './Header.vue'
-
+    import { isMobile } from 'mobile-device-detect';
     //import file from '@/statics/markdowns/1.md'
 
     export default {
@@ -30,9 +31,9 @@
         },
         data: function(){
             let jsonArticle = jsonArticles.find(x => x.id === this.id);
-            
+            console.log(isMobile);
             const markdownFile = require('../statics/markdowns/'+jsonArticle.src).default;
-            return ({ markdownFile, jsonArticle });
+            return ({ markdownFile, jsonArticle, isMobile });
         }
     }
 </script>
