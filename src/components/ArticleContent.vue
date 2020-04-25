@@ -31,7 +31,7 @@
         },
         data: function(){
             let jsonArticle = jsonArticles.find(x => x.id === this.id);
-            console.log(isMobile);
+            //console.log(isMobile);
             const markdownFile = require('../statics/markdowns/'+jsonArticle.src).default;
             return ({ markdownFile, jsonArticle, isMobile });
         }
