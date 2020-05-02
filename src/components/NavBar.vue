@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <a v-if="this.isUrl" :href="url">back</a>
-        <router-link v-if="this.isUrl == false" :to="url">back</router-link> |
-        <a class="style-link" v-on:click="toggle()">toggle dark mode</a>
-    </div>
+  <div>
+    <a v-if="this.isUrl" :href="url">back</a>
+    <router-link v-if="this.isUrl == false" :to="url">back</router-link> |
+    <a class="style-link" v-on:click="toggle()">toggle dark mode</a>
+  </div>
 </template>
 
 <script>
@@ -11,17 +11,15 @@
         name: 'NavBar',
         props: ['url'],
         data: function(){
-            this.darkMode = false;
+          this.isUrl = false;
+          // eh oh intanto è cosi finchè non trovo una soluzione
+          if (this.url == "/anasaraid"){
+            this.isUrl = true;
+            this.url = "https://anasaraid.me";
+          }else{
             this.isUrl = false;
-            
-            // eh oh intanto è cosi finchè non trovo una soluzione
-            if (this.url == "/anasaraid"){
-                this.isUrl = true;
-                this.url = "https://anasaraid.me";
-            }else{
-                this.isUrl = false;
-            }
-            return [this.isUrl];
+          }
+          return [this.isUrl];
         },
         methods: {
             toggle(){
