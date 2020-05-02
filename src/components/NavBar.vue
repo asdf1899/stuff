@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a v-if="this.isUrl" :href="url">back</a>
-    <router-link v-if="this.isUrl == false" :to="url">back</router-link> |
-    <a class="style-link" v-on:click="toggle()">toggle dark mode</a>
+    <a v-if="this.isUrl" :href="backUrl">back</a>
+    <router-link v-if="this.isUrl == false" :to="backUrl">back</router-link> |
+    <a class="style-link" v-on:click="toggle()"> {{this.toggleText}} </a>
   </div>
 </template>
 
@@ -11,15 +11,20 @@
         name: 'NavBar',
         props: ['url'],
         data: function(){
-          this.isUrl = false;
+          let isUrl = false;
+          let backUrl = this.url;
           // eh oh intanto è cosi finchè non trovo una soluzione
-          if (this.url == "/anasaraid"){
-            this.isUrl = true;
-            this.url = "https://anasaraid.me";
+          if (backUrl == "/anasaraid"){
+            isUrl = true;
+            backUrl = "https://anasaraid.me";
           }else{
-            this.isUrl = false;
+            isUrl = false;
           }
-          return [this.isUrl];
+          return {
+            backUrl,
+            isUrl,
+            toggleText: 'dark mode'
+          };
         },
         methods: {
             toggle(){
@@ -38,11 +43,13 @@
 
               let docHead = document.querySelector("head");
               docHead.append(darkThemeLinkEl);
+              this.toggleText = 'light mode';
             },
             setLight(){
               let darkThemeLinkEl = document.querySelector("#dark-theme-style");
               let parentNode = darkThemeLinkEl.parentNode;
               parentNode.removeChild(darkThemeLinkEl);
+              this.toggleText = 'dark mode';
             }
         }
     }
