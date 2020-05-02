@@ -9,7 +9,7 @@
         <footer class="footer">
             <i><sup>1</sup> stay up to date in Trentino dialect</i>
             <br>
-            Built using <a href="https://vuejs.org/">Vue.js</a> and <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a>
+            Built using <a href="https://vuejs.org/">Vue.js</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a>, open sourced and deployed on <a href="https://github.com/asdf1899/stuff/">Github</a>
         </footer>
     </div>
  </template>
