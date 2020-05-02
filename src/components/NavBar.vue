@@ -1,8 +1,8 @@
 <template>
     <div>
         <a v-if="this.isUrl" :href="url">back</a>
-        <router-link v-if="this.isUrl == false" :to="url">back</router-link>
-        <button v-on:click="toggle()">toggle dark mode</button>
+        <router-link v-if="this.isUrl == false" :to="url">back</router-link> |
+        <a class="style-link" v-on:click="toggle()">toggle dark mode</a>
     </div>
 </template>
 
@@ -21,26 +21,30 @@
             }else{
                 this.isUrl = false;
             }
-            console.log(this.isUrl);
-            return this.isUrl;
+            return [this.isUrl];
         },
         methods: {
             toggle(){
-                if (this.darkMode){
-                    this.setLight();
-                }else{
-                    this.setDark();
-                }
+              let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+              if (darkThemeLinkEl){
+                this.setLight();
+              }else{
+                this.setDark();
+              }
             },
             setDark(){
-                this.darkMode = true;
-                console.log("dark");
-                document.querySelector('body').classList.add('style-dark-mode')
+              let darkThemeLinkEl = document.createElement("link");
+              darkThemeLinkEl.setAttribute("rel", "stylesheet");
+              darkThemeLinkEl.setAttribute("href", "/css/darktheme.css");
+              darkThemeLinkEl.setAttribute("id", "dark-theme-style");
+
+              let docHead = document.querySelector("head");
+              docHead.append(darkThemeLinkEl);
             },
             setLight(){
-                this.darkMode = false;
-                console.log("light");
-                document.querySelector('body').classList.remove('style-dark-mode')
+              let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+              let parentNode = darkThemeLinkEl.parentNode;
+              parentNode.removeChild(darkThemeLinkEl);
             }
         }
     }
