@@ -22,6 +22,7 @@
                 this.isUrl = false;
             }
             console.log(this.isUrl);
+            return this.isUrl;
         },
         methods: {
             toggle(){
