@@ -52,12 +52,14 @@
 
             let docHead = document.querySelector("head");
             docHead.append(darkThemeLinkEl);
+            document.querySelector("#theme-color").content = '#212121';
             this.toggleText = 'light mode';
           },
           setLight(){
             let darkThemeLinkEl = document.querySelector("#dark-theme-style");
             let parentNode = darkThemeLinkEl.parentNode;
             parentNode.removeChild(darkThemeLinkEl);
+            document.querySelector("#theme-color").content = '#fffff8';
             this.toggleText = 'dark mode';
           }
         }
