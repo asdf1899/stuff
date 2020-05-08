@@ -5,12 +5,12 @@
         <header-info v-else-if="article==true" title="Articles"></header-info>
         <header-info v-else-if="article==false" title="Guides"></header-info>
         <div style="text-align:center">
-            <p>Just some random articles written by me in order to stay <i>"su co le rece"<sup>1</sup></i> with latest tech stacks.</p>
+            <p>Just some random articles written in order to stay <i>"su co le rece"<sup>1</sup></i> with latest tech stacks.</p>
         </div>
         <br>
         <div v-if="article == null" style="text-align:center">
-          <a class="style-link" v-on:click="article = true">Articles</a><br><br>
-          <a class="style-link" v-on:click="article = false">Guides</a>
+          <p class="style-link" style="" v-on:click="article = true">Articles</p>
+          <p class="style-link" v-on:click="article = false">Guides</p>
         </div>
         <div v-else style="text-align:center">
           <a class="style-link" v-on:click="article = null">Back</a>
