@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a v-if="this.isUrl" :href="backUrl">back</a>
+    <a v-if="this.isUrl" :href="backUrl">anasaraid.me</a>
     <router-link v-if="this.isUrl == false" :to="backUrl">back</router-link> |
     <a class="style-link" v-on:click="toggle()"> {{this.toggleText}} </a>
   </div>

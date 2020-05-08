@@ -1,11 +1,26 @@
 <template>
     <div>
         <nav-bar class="nav-bar" url="/anasaraid"></nav-bar>
-        <header-info title="Stuff"></header-info>
+        <header-info v-if="article==null" title="Stuff"></header-info>
+        <header-info v-else-if="article==true" title="Articles"></header-info>
+        <header-info v-else-if="article==false" title="Guides"></header-info>
         <div style="text-align:center">
             <p>Just some random articles written by me in order to stay <i>"su co le rece"<sup>1</sup></i> with latest tech stacks.</p>
         </div>
-        <articles-list :articles="jsonArticles.slice().reverse()"></articles-list>
+        <br>
+        <div v-if="article == null" style="text-align:center">
+          <a class="style-link" v-on:click="article = true">Articles</a><br><br>
+          <a class="style-link" v-on:click="article = false">Guides</a>
+        </div>
+        <div v-else style="text-align:center">
+          <a class="style-link" v-on:click="article = null">Back</a>
+        </div>
+        <div v-show="article != null">
+          <!-- show articles -->
+          <articles-list :articles="articleList.slice().reverse()" v-if="article"></articles-list>
+          <!-- show guides -->         
+          <articles-list :articles="guidesList.slice()" v-if="!article"></articles-list>
+        </div>
         <footer class="footer">
             <i><sup>1</sup> stay up to date in Trentino dialect</i>
             <br>
@@ -23,14 +38,18 @@
     export default {
         name: 'Homepage',
         components: {
-            'articles-list': ArticlesList,
-            'nav-bar': NavBar,
-            'header-info': Header
+          'articles-list': ArticlesList,
+          'nav-bar': NavBar,
+          'header-info': Header
         },
         data: function(){
-            return {
-                jsonArticles
-            }
+          var articleList = jsonArticles.filter(a=>a.tag=="articles");
+          var guidesList = jsonArticles.filter(a=>a.tag=="guides"); 
+          return {
+              articleList,
+              guidesList,
+              article: null
+          }
         }
     }
 </script>
