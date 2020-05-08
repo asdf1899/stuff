@@ -6,7 +6,6 @@ Lightweight personal journal that parse markdown writing into articles.
 
 - Sub menu Articles and Guides
 - Load markdowns from firebase
-- Separate views from components folder
 - Automatic darkmode based on time
    ```
         const date = new Date();

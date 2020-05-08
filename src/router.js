@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Homepage from '@/components/Homepage'
-import ArticleContent from '@/components/ArticleContent'
+import Homepage from '@/views/Homepage'
+import Content from '@/views/Content'
 //import ArticleEntries from './statics/articles.json';
 
 Vue.use(Router)
@@ -28,8 +28,8 @@ export default new Router({
     },
     {
       path: '/:id',
-      name: 'ArticleContent',
-      component: ArticleContent,
+      name: 'Content',
+      component: Content,
       props: true
     }
     /*

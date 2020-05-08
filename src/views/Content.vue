@@ -10,15 +10,15 @@
 </template>
 
 <script>
-    import NavBar from './NavBar.vue'
+    import NavBar from '../components/NavBar.vue'
     import VueMarkdown from 'vue-markdown'
     import jsonArticles from '@/statics/articles.json'
-    import Header from './Header.vue'
+    import Header from '../components/Header.vue'
     import { isMobile } from 'mobile-device-detect';
     //import file from '@/statics/markdowns/1.md'
 
     export default {
-        name: 'ArticleContent',
+        name: 'Content',
         components: {
             'nav-bar': NavBar,
             'vue-markdown': VueMarkdown,

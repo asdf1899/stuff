@@ -15,9 +15,9 @@
  </template>
 
 <script>
-    import Header from './Header.vue'
-    import ArticlesList from './ArticlesList.vue'
-    import NavBar from './NavBar.vue'
+    import Header from '../components/Header.vue'
+    import ArticlesList from '../components/ArticlesList.vue'
+    import NavBar from '../components/NavBar.vue'
     import jsonArticles from '@/statics/articles.json'
 
     export default {
