@@ -4,6 +4,7 @@ Lightweight personal journal that parse markdown writing into articles.
 
 ### ToDo
 
+- change subtitle based on section
 - Load markdowns from firebase
 - Automatic darkmode based on time
    ```
@@ -13,5 +14,6 @@ Lightweight personal journal that parse markdown writing into articles.
             this.setDark();
         }
     ```
+- Add photography section
 
 Built using [Vuejs](https://vuejs.org/), [vue-markdown](https://github.com/miaolz123/vue-markdown), [tufte-css](https://github.com/edwardtufte/tufte-css)
