@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Homepage from '@/views/Homepage'
 import Content from '@/views/Content'
 import Guides from '@/views/Guides'
+import Articles from '@/views/Articles'
 //import ArticleEntries from './statics/articles.json';
 
 Vue.use(Router)
@@ -31,7 +32,11 @@ export default new Router({
       path: '/guides',
       name: 'Guides',
       component: Guides,
-      props: true
+    },
+    {
+      path: '/articles',
+      name: 'Article',
+      component: Articles,
     },
     {
       path: '/articles/:id',
