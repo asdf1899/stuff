@@ -4,8 +4,14 @@
         <header-info v-if="article==null" title="Stuff"></header-info>
         <header-info v-else-if="article==true" title="Articles"></header-info>
         <header-info v-else-if="article==false" title="Guides"></header-info>
-        <div style="text-align:center">
-            <p>Just some random articles written in order to stay <i>"su co le rece"<sup>1</sup></i> with latest tech stacks.</p>
+        <div v-if="article==null" style="text-align:center">
+            <p>Just some random articles written in order to stay <i>"su co le rece"<sup>1</sup></i> with latest technologies.</p>
+        </div>
+        <div v-else-if="article==true" style="text-align:center">
+            <p>Random articles about personal experiences, self improvement and latest tech stacks.</p>
+        </div>
+        <div v-else-if="article==false" style="text-align:center">
+            <p>Development guides geared towards Computer Science and Web Programming.</p>
         </div>
         <br>
         <div v-if="article == null" style="text-align:center">

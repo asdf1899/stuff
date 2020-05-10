@@ -4,7 +4,6 @@ Lightweight personal journal that parse markdown writing into articles.
 
 ### ToDo
 
-- change subtitle based on section
 - Load markdowns from firebase
 - Automatic darkmode based on time
    ```
