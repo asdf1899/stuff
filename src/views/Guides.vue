@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar class="nav-bar" url="/"></nav-bar>
+    <nav-bar class="nav-bar" url="/" text="home"></nav-bar>
     <header-info title="Guides"></header-info>
     <div style="text-align:center">
       <p>Development guides geared towards Computer Science and Web Programming.</p>

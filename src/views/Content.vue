@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-bar class="nav-bar" :url="this.url"></nav-bar>
+        <nav-bar class="nav-bar" :url="this.url" text="back"></nav-bar>
         <br>
         <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>   
         <br>        

@@ -1,7 +1,7 @@
 <template>
   <div>
     <a v-if="this.isUrl" :href="backUrl">about</a>
-    <router-link v-if="this.isUrl == false" :to="backUrl">back</router-link> |
+    <router-link v-if="this.isUrl == false" :to="backUrl">{{this.NavbarText}}</router-link> |
     <a class="style-link" v-on:click="toggle()"> {{this.toggleText}} </a>
   </div>
 </template>
@@ -9,8 +9,9 @@
 <script>
     export default {
         name: 'NavBar',
-        props: ['url'],
+        props: ['url', 'text'],
         data: function(){
+          let NavbarText = this.text; 
           let isUrl = false;
           let backUrl = this.url;
           let toggleText = 'dark mode';
@@ -32,6 +33,7 @@
           return {
             backUrl,
             isUrl,
+            NavbarText,
             toggleText
           };
         },

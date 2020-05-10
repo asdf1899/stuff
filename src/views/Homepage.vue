@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-bar class="nav-bar" url="/anasaraid"></nav-bar>
+        <nav-bar class="nav-bar" url="/anasaraid" text="about"></nav-bar>
         <header-info title="Stuff"></header-info>
         <div style="text-align:center">
             <p>Just some random articles written in order to stay <i>"su co le rece"<sup>1</sup></i> with latest technologies.</p>
