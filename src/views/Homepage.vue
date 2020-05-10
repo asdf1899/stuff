@@ -3,29 +3,26 @@
         <nav-bar class="nav-bar" url="/anasaraid"></nav-bar>
         <header-info v-if="article==null" title="Stuff"></header-info>
         <header-info v-else-if="article==true" title="Articles"></header-info>
-        <header-info v-else-if="article==false" title="Guides"></header-info>
         <div v-if="article==null" style="text-align:center">
             <p>Just some random articles written in order to stay <i>"su co le rece"<sup>1</sup></i> with latest technologies.</p>
         </div>
         <div v-else-if="article==true" style="text-align:center">
             <p>Random articles about personal experiences, self improvement and latest tech stacks.</p>
         </div>
-        <div v-else-if="article==false" style="text-align:center">
-            <p>Development guides geared towards Computer Science and Web Programming.</p>
-        </div>
         <br>
         <div v-if="article == null" style="text-align:center">
-          <p class="style-link" style="" v-on:click="article = true">Articles</p>
-          <p class="style-link" v-on:click="article = false">Guides</p>
+          <router-link to="/articles" class="style-link" style="font-size: 1.4rem;">Articles</router-link>
+          <br>
+          <router-link to="/guides" class="style-link" style="font-size: 1.4rem;">Guides</router-link>
         </div>
         <div v-else style="text-align:center">
           <a class="style-link" v-on:click="article = null">Back</a>
         </div>
         <div v-show="article != null">
           <!-- show articles -->
-          <articles-list :articles="articleList.slice().reverse()" v-if="article"></articles-list>
+          <articles-list :articles="articleList.slice().reverse()" :isArticle="article" v-if="article"></articles-list>
           <!-- show guides -->         
-          <articles-list :articles="guidesList.slice()" v-if="!article"></articles-list>
+          <articles-list :articles="guidesList.slice().reverse()" :isArticle="article" v-if="!article"></articles-list>
         </div>
         <footer class="footer">
             <i><sup>1</sup> stay up to date in Trentino dialect</i>

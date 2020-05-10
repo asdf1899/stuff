@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Homepage from '@/views/Homepage'
 import Content from '@/views/Content'
+import Guides from '@/views/Guides'
 //import ArticleEntries from './statics/articles.json';
 
 Vue.use(Router)
@@ -27,8 +28,20 @@ export default new Router({
       }
     },
     {
-      path: '/:id',
-      name: 'Content',
+      path: '/guides',
+      name: 'Guides',
+      component: Guides,
+      props: true
+    },
+    {
+      path: '/articles/:id',
+      name: 'ArticleContent',
+      component: Content,
+      props: true
+    },
+    {
+      path: '/guides/:id',
+      name: 'GuideContent',
       component: Content,
       props: true
     }

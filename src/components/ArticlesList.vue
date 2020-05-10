@@ -2,7 +2,7 @@
     <div style="max-height:500px;overflow:auto">
         <ul style="text-align:center;display:table;margin: 0 auto;margin-top:15px">
             <li v-for="article in articles" :key="article.title" style="list-style: upper-roman;text-align:left">
-                <router-link :to="$route.path+article.id">{{article.title}}</router-link>
+                <router-link :to="$route.path+'/'+article.id">{{article.title}}</router-link>
             </li>
         </ul>
     </div> 
@@ -14,7 +14,16 @@
         props: {
             articles: {
                 type: Array
+            },
+            isArticle:{
+              type: Boolean
             }
+        },
+        data: function(){
+          console.log('this.isArticle '+this.isArticle);
+          return {
+            type: (this.isArticle) ? 'articles' : 'guides'
+          }
         }
     }
 </script>

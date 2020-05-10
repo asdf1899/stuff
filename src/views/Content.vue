@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-bar class="nav-bar" url="/"></nav-bar>
+        <nav-bar class="nav-bar" :url="this.url"></nav-bar>
         <br>
         <header-info :title="this.jsonArticle.title" :date="this.jsonArticle.date"></header-info>   
         <br>        
@@ -30,10 +30,12 @@
             }
         },
         data: function(){
-            let jsonArticle = jsonArticles.find(x => x.id === this.id);
-            //console.log(isMobile);
-            const markdownFile = require('../statics/markdowns/'+jsonArticle.src).default;
-            return ({ markdownFile, jsonArticle, isMobile });
+          console.log(this.$router.currentRoute);
+          let url = this.$router.currentRoute.fullPath;
+          url = url.substring(0, url.lastIndexOf('/'));
+          let jsonArticle = jsonArticles.find(x => x.id === this.id);
+          const markdownFile = require('../statics/markdowns/'+jsonArticle.src).default;
+          return ({ markdownFile, jsonArticle, isMobile, url });
         }
     }
 </script>
