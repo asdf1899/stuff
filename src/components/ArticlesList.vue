@@ -20,7 +20,6 @@
             }
         },
         data: function(){
-          console.log('this.isArticle '+this.isArticle);
           return {
             type: (this.isArticle) ? 'articles' : 'guides'
           }

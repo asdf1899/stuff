@@ -15,8 +15,7 @@
     import jsonArticles from '@/statics/articles.json'
     import Header from '../components/Header.vue'
     import { isMobile } from 'mobile-device-detect';
-    //import file from '@/statics/markdowns/1.md'
-
+    
     export default {
         name: 'Content',
         components: {
@@ -30,7 +29,6 @@
             }
         },
         data: function(){
-          console.log(this.$router.currentRoute);
           let url = this.$router.currentRoute.fullPath;
           url = url.substring(0, url.lastIndexOf('/'));
           let jsonArticle = jsonArticles.find(x => x.id === this.id);
