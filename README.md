@@ -4,7 +4,6 @@ Lightweight personal journal that parse markdown writing into articles.
 
 ### ToDo
 
-- Load markdowns from firebase
 - Automatic darkmode based on time
    ```
         const date = new Date();
@@ -14,5 +13,6 @@ Lightweight personal journal that parse markdown writing into articles.
         }
     ```
 - Add photography section
+- Fix content flickering
 
 Built using [Vuejs](https://vuejs.org/), [vue-markdown](https://github.com/miaolz123/vue-markdown), [tufte-css](https://github.com/edwardtufte/tufte-css)

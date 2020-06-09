@@ -30,7 +30,9 @@
     },
     data: function(){
       return {
-        articles: []
+        articles: [],
+        refresh: 0,
+        errored: false
       }
     },
     mounted(){

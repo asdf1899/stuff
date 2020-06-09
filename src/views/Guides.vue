@@ -30,7 +30,9 @@
     },
     data: function(){
       return {
-        guides: []
+        guides: [],
+        refresh: 0,
+        errored: false
       }
     },
     mounted(){
