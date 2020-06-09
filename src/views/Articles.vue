@@ -5,7 +5,10 @@
     <div style="text-align:center">
       <p>Random articles about personal experiences, self improvement and latest tech stacks.</p>
     </div>
-    <articles-list :articles="articles.slice().reverse()"></articles-list>
+    <articles-list :articles="articles.slice().reverse()" :key="this.refresh"></articles-list>
+    <div v-if="this.errored" :key="this.refresh" style="text-align:center">
+      <h3>Internal Error (Content not found)</h3>
+    </div>
     <footer class="footer">
       <span>Built using <a href="https://vuejs.org/">Vue.js</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a>, open sourced and deployed on <a href="https://github.com/asdf1899/stuff/">Github</a></span>
     </footer>
@@ -32,11 +35,9 @@
     },
     mounted(){
       let articlesUrl = 'https://anasaraid.me/stuff-data/articles.json';
-      console.log(articlesUrl);
       axios
         .get(articlesUrl)
         .then(response => {
-            console.log(response.data)
             let articlesJSON = response.data;
             let articleList = articlesJSON.filter(a=>a.tag=="articles"); 
             this.articles = articleList;
