@@ -13,6 +13,6 @@ Lightweight personal journal that parse markdown writing into articles.
         }
     ```
 - Add photography section
-- Fix content flickering
+- Fix content flickering (lazy load(?))
 
 Built using [Vuejs](https://vuejs.org/), [vue-markdown](https://github.com/miaolz123/vue-markdown), [tufte-css](https://github.com/edwardtufte/tufte-css)

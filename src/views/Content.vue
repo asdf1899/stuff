@@ -4,7 +4,7 @@
         <br>
         <header-info :title="currentArticle.title" :date="currentArticle.date"></header-info>   
         <br>        
-        <vue-markdown v-if="isMobile" style="text-align:left!important;">{{this.fileContent}}</vue-markdown>
+        <vue-markdown v-if="isMobile" :key="this.refresh" style="text-align:left!important;">{{this.fileContent}}</vue-markdown>
         <vue-markdown v-else :key="this.refresh" style="text-align: justify!important;text-justify: inter-word;!important">{{this.fileContent}}</vue-markdown>
         <div v-if="this.errored" :key="this.refresh" style="text-align:center">
           <h3>Internal Error (Content not found)</h3>
@@ -52,7 +52,6 @@
           ))
         */
         let markdownUrl = 'https://anasaraid.me/stuff-data/markdowns/'+this.id+'.md';
-        console.log(markdownUrl);
         axios
           .get(markdownUrl)
           .then(response => {
