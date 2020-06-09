@@ -5,7 +5,7 @@
     <div style="text-align:center">
       <p>Random articles about personal experiences, self improvement and latest tech stacks.</p>
     </div>
-    <articles-list :articles="articles.slice().reverse()" :isArticle="false"></articles-list>
+    <articles-list :articles="articles.slice().reverse()"></articles-list>
     <footer class="footer">
       <span>Built using <a href="https://vuejs.org/">Vue.js</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a>, open sourced and deployed on <a href="https://github.com/asdf1899/stuff/">Github</a></span>
     </footer>
@@ -16,7 +16,7 @@
   import Header from '../components/Header.vue'
   import ArticlesList from '../components/ArticlesList.vue'
   import NavBar from '../components/NavBar.vue'
-  import { db } from '../firebase';
+  import axios from 'axios';
 
   export default {
     name: 'Articles',
@@ -30,13 +30,24 @@
         articles: []
       }
     },
-    firestore(){
-      return {
-        articles: db.collection('articles')
-        .where(
-          'tag', '==', 'articles'
-        )
-      }
+    mounted(){
+      let articlesUrl = 'https://anasaraid.me/stuff-data/articles.json';
+      console.log(articlesUrl);
+      axios
+        .get(articlesUrl)
+        .then(response => {
+            console.log(response.data)
+            let articlesJSON = response.data;
+            let articleList = articlesJSON.filter(a=>a.tag=="articles"); 
+            this.articles = articleList;
+            this.refresh += 1;
+        })
+        .catch(error => {
+            console.log(error);
+            this.errored = true;
+            this.refresh += 1;
+        })
+        .finally(() => this.loading = false)
     }
   }
 </script>

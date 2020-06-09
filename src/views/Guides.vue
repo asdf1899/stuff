@@ -5,7 +5,7 @@
     <div style="text-align:center">
       <p>Development guides geared towards Computer Science and Web Programming.</p>
     </div>
-    <articles-list :articles="guides.slice().reverse()" :isArticle="false"></articles-list>
+    <articles-list :articles="guides.slice().reverse()"></articles-list>
     <footer class="footer">
       <span>Built using <a href="https://vuejs.org/">Vue.js</a>, <a href="https://edwardtufte.github.io/tufte-css/">tufte.css</a>, open sourced and deployed on <a href="https://github.com/asdf1899/stuff/">Github</a></span>
     </footer>

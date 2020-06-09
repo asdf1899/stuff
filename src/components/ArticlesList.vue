@@ -10,19 +10,11 @@
 
 <script>
    export default {
-        name: 'NavBar',
-        props: {
-            articles: {
-                type: Array
-            },
-            isArticle:{
-              type: Boolean
-            }
-        },
-        data: function(){
-          return {
-            type: (this.isArticle) ? 'articles' : 'guides'
-          }
+      name: 'NavBar',
+      props: {
+        articles: {
+            type: Array
         }
+      }
     }
 </script>
