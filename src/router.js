@@ -4,7 +4,6 @@ import Homepage from '@/views/Homepage'
 import Content from '@/views/Content'
 import Guides from '@/views/Guides'
 import Articles from '@/views/Articles'
-//import ArticleEntries from './statics/articles.json';
 
 Vue.use(Router)
 
@@ -50,11 +49,5 @@ export default new Router({
       component: Content,
       props: true
     }
-    /*
-    ArticleEntries.map(entry => ({
-      path: `/${entry}`,
-      name: entry,
-      component: () => import(`../markdowns/${entry}.md`)
-    }))*/
   ]
 })

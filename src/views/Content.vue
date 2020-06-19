@@ -42,7 +42,6 @@
         let noOfWords = file.split(/\s/g).length;
         const minutes = noOfWords / wordsPerMinute;
         const readTime = Math.ceil(minutes);
-        console.log(readTime);
         return readTime;
       }
     },

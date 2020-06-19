@@ -40,15 +40,15 @@
       axios
         .get(articlesUrl)
         .then(response => {
-            let articlesJSON = response.data;
-            let guidesList = articlesJSON.filter(a=>a.tag=="guides"); 
-            this.guides = guidesList;
-            this.refresh += 1;
+          let articlesJSON = response.data;
+          let guidesList = articlesJSON.filter(a=>a.tag=="guides"); 
+          this.guides = guidesList;
+          this.refresh += 1;
         })
         .catch(error => {
-            console.log(error);
-            this.errored = true;
-            this.refresh += 1;
+          console.log(error);
+          this.errored = true;
+          this.refresh += 1;
         })
         .finally(() => this.loading = false)
     }
