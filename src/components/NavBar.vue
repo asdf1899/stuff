@@ -40,6 +40,7 @@
     },
     created(){
       if (this.$session.exists()){
+        // se la chiave darkTheme esiste allora controllo se è impostata a true o a false
         if (this.$session.has('darkTheme')){
           if(this.$session.get('darkTheme')){
             this.setDark();
@@ -49,6 +50,7 @@
         }else{
           const date = new Date();
           const now = date.getHours();
+          // se le ore sono tra le 20 e 7, allora imposta la dark mode
           if (now > 20 && now < 7){
             this.$session.set('darkTheme', true)
             this.setDark();
@@ -136,11 +138,12 @@
         this.toggleText = 'light mode';
       },
       setLight(){
-        document.querySelectorAll("#dark-theme-style").forEach(e => e.parentNode.removeChild(e));
-        /*
-        let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+       // il codice commentato è obsoleto in quanto ho sostituito questo metodo con le sessioni
+        /*let darkThemeLinkEl = document.querySelector("#dark-theme-style");
         let parentNode = darkThemeLinkEl.parentNode;
         parentNode.removeChild(darkThemeLinkEl);*/
+        
+        document.querySelectorAll("#dark-theme-style").forEach(e => e.parentNode.removeChild(e));
         document.querySelector("#theme-color").content = '#fffff8';
         this.toggleText = 'dark mode';
       }
