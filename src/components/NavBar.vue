@@ -24,12 +24,13 @@
         isUrl = false;
       }
       // =======================================
-      let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+      // codice commentato è obsoleto in quanto ho sostituito questo metodo con le sessioni
+      /*let darkThemeLinkEl = document.querySelector("#dark-theme-style");
       if (darkThemeLinkEl){
         toggleText = 'light mode';
       }else{
         toggleText = 'dark mode';
-      }
+      }*/
       return {
         backUrl,
         isUrl,
@@ -37,17 +38,94 @@
         toggleText
       };
     },
+    created(){
+      if (this.$session.exists()){
+        if (this.$session.has('darkTheme')){
+          if(this.$session.get('darkTheme')){
+            this.setDark();
+          }else{
+            this.setLight();
+          } 
+        }else{
+          const date = new Date();
+          const now = date.getHours();
+          if (now > 20 && now < 7){
+            this.$session.set('darkTheme', true)
+            this.setDark();
+          }else{
+            this.$session.set('darkTheme', false)
+            this.setLight();
+          }
+        }
+      }else{
+        this.$session.start()
+        const date = new Date();
+        const now = date.getHours();
+        if (now > 20 || now < 7){
+          this.$session.set('darkTheme', true)
+          this.setDark();
+        }else{
+          this.$session.set('darkTheme', false)
+          this.setLight();
+        }
+      }
+    },
     methods: {
       toggle(){
-        let darkThemeLinkEl = document.querySelector("#dark-theme-style");
+        if (this.$session.exists()){
+        if (this.$session.has('darkTheme')){
+          // TOGGLE
+          if(this.$session.get('darkTheme')){
+            this.setLight();
+            this.$session.set('darkTheme', false)
+          }else{
+            this.setDark();
+            this.$session.set('darkTheme', true)
+          } 
+        }else{
+          const date = new Date();
+          const now = date.getHours();
+          if (now > 20 && now < 7){
+            this.$session.set('darkTheme', true)
+            this.setDark();
+          }else{
+            this.$session.set('darkTheme', false)
+            this.setLight();
+          }
+        }
+        }else{
+          this.$session.start()
+          const date = new Date();
+          const now = date.getHours();
+          if (now > 20 && now < 7){
+            this.$session.set('darkTheme', true)
+            this.setDark();
+          }else{
+            this.$session.set('darkTheme', false)
+            this.setLight();
+          }
+        }
+       // codice commentato è obsoleto in quanto ho sostituito questo metodo con le sessioni
+        /*let darkThemeLinkEl = document.querySelector("#dark-theme-style");
         if (darkThemeLinkEl){
           this.setLight();
         }else{
           this.setDark();
-        }
+        }*/
       },
       setDark(){
-        let darkThemeLinkEl = document.createElement("link");
+        // Se ci sono più link allora cancello l'ultimo
+        // possibile bug futuro
+        let darkThemeLinkEl;
+        if (document.querySelectorAll("#dark-theme-style").length > 1) {
+          darkThemeLinkEl = document.querySelector("#dark-theme-style");
+          let parentNode = darkThemeLinkEl.parentNode;
+          parentNode.removeChild(darkThemeLinkEl);
+          document.querySelector("#theme-color").content = '#fffff8';
+          this.toggleText = 'light mode';
+          return;
+        }
+        darkThemeLinkEl = document.createElement("link");
         darkThemeLinkEl.setAttribute("rel", "stylesheet");
         darkThemeLinkEl.setAttribute("href", "/stuff/css/darktheme.css");
         darkThemeLinkEl.setAttribute("id", "dark-theme-style");
@@ -58,9 +136,11 @@
         this.toggleText = 'light mode';
       },
       setLight(){
+        document.querySelectorAll("#dark-theme-style").forEach(e => e.parentNode.removeChild(e));
+        /*
         let darkThemeLinkEl = document.querySelector("#dark-theme-style");
         let parentNode = darkThemeLinkEl.parentNode;
-        parentNode.removeChild(darkThemeLinkEl);
+        parentNode.removeChild(darkThemeLinkEl);*/
         document.querySelector("#theme-color").content = '#fffff8';
         this.toggleText = 'dark mode';
       }
