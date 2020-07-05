@@ -123,7 +123,7 @@
           darkThemeLinkEl = document.querySelector("#dark-theme-style");
           let parentNode = darkThemeLinkEl.parentNode;
           parentNode.removeChild(darkThemeLinkEl);
-          document.querySelector("#theme-color").content = '#fffff8';
+          document.querySelector("#theme-color").content = '#212121';
           this.toggleText = 'light mode';
           return;
         }
