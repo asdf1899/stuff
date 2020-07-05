@@ -1,9 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Homepage from '@/views/Homepage'
-import Content from '@/views/Content'
-import Guides from '@/views/Guides'
-import Articles from '@/views/Articles'
 
 Vue.use(Router)
 
@@ -12,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'Homepage',
-      component: Homepage,
+      component: () => import('@/views/Homepage'),
       meta: {
         title: 'Stuff - Homepage',
         metaTags: [
@@ -30,23 +26,23 @@ export default new Router({
     {
       path: '/guides',
       name: 'Guides',
-      component: Guides,
+      component: () => import('@/views/Guides'),
     },
     {
       path: '/articles',
       name: 'Article',
-      component: Articles,
+      component: () => import('@/views/Articles'),
     },
     {
       path: '/articles/:id',
       name: 'ArticleContent',
-      component: Content,
+      component: () => import('@/views/Content'),
       props: true
     },
     {
       path: '/guides/:id',
       name: 'GuideContent',
-      component: Content,
+      component: () => import('@/views/Content'),
       props: true
     }
   ]
