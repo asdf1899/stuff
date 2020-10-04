@@ -13,7 +13,7 @@
     name: 'NavBar',
     props: {
       articles: {
-          type: Array
+        type: Array
       }
     }
   }

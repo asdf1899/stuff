@@ -6,7 +6,7 @@
       <p>Development guides geared towards Computer Science and Web Programming.</p>
     </div>
     <articles-list :articles="guides.slice().reverse()" :key="this.refresh"></articles-list>
-        <div v-if="this.errored" :key="this.refresh" style="text-align:center">
+    <div v-if="this.errored" :key="this.refresh" style="text-align:center">
       <h3>Internal Error (Content not found)</h3>
     </div>
     <footer class="footer">

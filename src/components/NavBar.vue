@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a v-if="this.isUrl" :href="backUrl">about</a>
+    <a v-if="this.isUrl" :href="backUrl">about me</a>
     <router-link v-if="this.isUrl == false" :to="backUrl">{{this.NavbarText}}</router-link> |
     <a class="style-link" v-on:click="toggle()"> {{this.toggleText}} </a>
   </div>
@@ -23,14 +23,6 @@
       }else{
         isUrl = false;
       }
-      // =======================================
-      // codice commentato è obsoleto in quanto ho sostituito questo metodo con le sessioni
-      /*let darkThemeLinkEl = document.querySelector("#dark-theme-style");
-      if (darkThemeLinkEl){
-        toggleText = 'light mode';
-      }else{
-        toggleText = 'dark mode';
-      }*/
       return {
         backUrl,
         isUrl,
@@ -50,8 +42,8 @@
         }else{
           const date = new Date();
           const now = date.getHours();
-          // se le ore sono tra le 20 e 7, allora imposta la dark mode
-          if (now > 20 && now < 7){
+          // se le ore sono tra le 20 e 8, allora imposta la dark mode
+          if (now >= 20 || now <= 8){
             this.$session.set('darkTheme', true)
             this.setDark();
           }else{
@@ -63,7 +55,7 @@
         this.$session.start()
         const date = new Date();
         const now = date.getHours();
-        if (now > 20 || now < 7){
+        if (now >= 20 || now <= 8){
           this.$session.set('darkTheme', true)
           this.setDark();
         }else{
